@@ -23,6 +23,7 @@ public class UsersFaker {
     public static final String hobbies = faker.options().option("Sports", "Reading", "Music");
     public static final String imageName = faker.options().option("image1.jpg", "image2.jpg", "image3.jpg");
     public static final String adress = String.valueOf(faker.address());
+    public static final String adressPermanent = String.valueOf(faker.address());
     public static final String state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
     public static final String city = chooseCity();
     public static final String yearOfBDay = Integer.toString(faker.number().numberBetween(1900, 2024));
