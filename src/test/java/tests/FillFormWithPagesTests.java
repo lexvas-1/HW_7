@@ -2,43 +2,46 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
-
+import utils.UsersFaker;
 
 class FillFormWithPagesTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
-
+    UsersFaker usersFaker;
 
     @Test
     void successfulFillFormTest() {
 
+
         registrationPage.openPage()
                 .removeBan()
-                .setFirstName("Alexander")
-                .setLastName("Volodin")
-                .setEmail("lex@test.ru")
-                .setGender("Male")
-                .setUserNumber("7123456789")
-                .setDateOfBirth("14", "11", "1989")
-                .setSubjects("Chemistry")
-                .setHobbies("Sports")
-                .setImage("image.jpg")
-                .setAdress("Lenina Street, 1a")
-                .setState("Rajasthan")
-                .setCity("Jaiselmer")
+                .setFirstName(UsersFaker.firstName)
+                .setLastName(UsersFaker.lastName)
+                .setEmail(UsersFaker.userEmail)
+                .setGender(UsersFaker.userGender)
+                .setUserNumber(UsersFaker.phoneNumber)
+                .setDateOfBirth(UsersFaker.dayOfBDay, UsersFaker.monthOfBDay, UsersFaker.yearOfBDay)
+                .setSubjects(UsersFaker.subjects)
+                .setHobbies(UsersFaker.hobbies)
+                .setImage(UsersFaker.imageName)
+                .setAdress(UsersFaker.adress)
+                .setState(UsersFaker.state)
+                .setCity(UsersFaker.city)
 
                 .submit()
 
-                .checkResult("Student Name Alexander Volodin")
-                .checkResult("Student Email lex@test.ru")
-                .checkResult("Gender Male")
-                .checkResult("Mobile 7123456789")
-                .checkResult("Date of Birth 14 December,1989")
-                .checkResult("Subjects Chemistry")
-                .checkResult("Hobbies 	Sports")
-                .checkResult("Picture image.jpg")
-                .checkResult("Address Lenina Street, 1a")
-                .checkResult("State and City Rajasthan Jaiselmer");
+                .checkResult("Student Name " + UsersFaker.firstName + " " + UsersFaker.lastName)
+                .checkResult("Student Email " + UsersFaker.userEmail)
+                .checkResult("Gender " + UsersFaker.userGender)
+                .checkResult("Mobile " + UsersFaker.phoneNumber)
+                .checkResult(
+                        "Date of Birth " + UsersFaker.dayOfBDay + " "
+                                + UsersFaker.monthOfBDay + "," + UsersFaker.yearOfBDay)
+                .checkResult("Subjects " + UsersFaker.subjects)
+                .checkResult("Hobbies " + UsersFaker.hobbies)
+                .checkResult("Picture " + UsersFaker.imageName)
+                .checkResult("Address " + UsersFaker.adress)
+                .checkResult("State and City " + UsersFaker.state + " " + UsersFaker.city);
 
     }
 
@@ -47,8 +50,8 @@ class FillFormWithPagesTests extends TestBase {
 
         registrationPage.openPage()
                 .removeBan()
-                .setFirstName("Alexander")
-                .setLastName("Volodin")
+                .setFirstName(UsersFaker.firstName)
+                .setLastName(UsersFaker.lastName)
 
 
                 .submit()
@@ -63,16 +66,16 @@ class FillFormWithPagesTests extends TestBase {
 
         registrationPage.openPage()
                 .removeBan()
-                .setFirstName("Alexander")
-                .setLastName("Volodin")
-                .setGender("Male")
-                .setUserNumber("1234567890")
+                .setFirstName(UsersFaker.firstName)
+                .setLastName(UsersFaker.lastName)
+                .setGender(UsersFaker.userGender)
+                .setUserNumber(UsersFaker.phoneNumber)
 
                 .submit()
 
-                .checkResult("Student Name Alexander Volodin")
-                .checkResult("Gender Male")
-                .checkResult("Mobile 1234567890");
+                .checkResult("Student Name " + UsersFaker.firstName + " " + UsersFaker.lastName)
+                .checkResult("Gender " + UsersFaker.userGender)
+                .checkResult("Mobile " + UsersFaker.phoneNumber);
 
 
     }
@@ -82,10 +85,11 @@ class FillFormWithPagesTests extends TestBase {
 
         registrationPage.openPage()
                 .removeBan()
-                .setFirstName("Alexander")
-                .setLastName("Volodin")
-                .setGender("Male")
-                .setUserNumber("123456789")
+                .setFirstName(UsersFaker.firstName)
+                .setLastName(UsersFaker.lastName)
+                .setGender(UsersFaker.userGender)
+                .setUserNumber(UsersFaker.wrongPhoneNumber)
+
 
                 .submit()
 
