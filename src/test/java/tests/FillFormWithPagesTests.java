@@ -7,7 +7,7 @@ import utils.UsersFaker;
 class FillFormWithPagesTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
-    UsersFaker usersFaker;
+    UsersFaker usersFaker = new UsersFaker();
 
     @Test
     void successfulFillFormTest() {
@@ -15,33 +15,33 @@ class FillFormWithPagesTests extends TestBase {
 
         registrationPage.openPage()
                 .removeBan()
-                .setFirstName(UsersFaker.firstName)
-                .setLastName(UsersFaker.lastName)
-                .setEmail(UsersFaker.userEmail)
-                .setGender(UsersFaker.userGender)
-                .setUserNumber(UsersFaker.phoneNumber)
-                .setDateOfBirth(UsersFaker.dayOfBDay, UsersFaker.monthOfBDay, UsersFaker.yearOfBDay)
-                .setSubjects(UsersFaker.subjects)
-                .setHobbies(UsersFaker.hobbies)
-                .setImage(UsersFaker.imageName)
-                .setAdress(UsersFaker.adress)
-                .setState(UsersFaker.state)
-                .setCity(UsersFaker.city)
+                .setFirstName(usersFaker.firstName)
+                .setLastName(usersFaker.lastName)
+                .setEmail(usersFaker.userEmail)
+                .setGender(usersFaker.userGender)
+                .setUserNumber(usersFaker.phoneNumber)
+                .setDateOfBirth(usersFaker.dayOfBDayFormated, usersFaker.monthOfBDay, usersFaker.yearOfBDay)
+                .setSubjects(usersFaker.subjects)
+                .setHobbies(usersFaker.hobbies)
+                .setImage(usersFaker.imageName)
+                .setAdress(usersFaker.adress)
+                .setState(usersFaker.state)
+                .setCity(usersFaker.city)
 
                 .submit()
 
-                .checkResult("Student Name " + UsersFaker.firstName + " " + UsersFaker.lastName)
-                .checkResult("Student Email " + UsersFaker.userEmail)
-                .checkResult("Gender " + UsersFaker.userGender)
-                .checkResult("Mobile " + UsersFaker.phoneNumber)
+                .checkResult("Student Name " + usersFaker.firstName + " " + usersFaker.lastName)
+                .checkResult("Student Email " + usersFaker.userEmail)
+                .checkResult("Gender " + usersFaker.userGender)
+                .checkResult("Mobile " + usersFaker.phoneNumber)
                 .checkResult(
-                        "Date of Birth " + UsersFaker.dayOfBDay + " "
-                                + UsersFaker.monthOfBDay + "," + UsersFaker.yearOfBDay)
-                .checkResult("Subjects " + UsersFaker.subjects)
-                .checkResult("Hobbies " + UsersFaker.hobbies)
-                .checkResult("Picture " + UsersFaker.imageName)
-                .checkResult("Address " + UsersFaker.adress)
-                .checkResult("State and City " + UsersFaker.state + " " + UsersFaker.city);
+                        "Date of Birth " + usersFaker.dayOfBDayFormated + " "
+                                + usersFaker.monthOfBDay + "," + usersFaker.yearOfBDay)
+                .checkResult("Subjects " + usersFaker.subjects)
+                .checkResult("Hobbies " + usersFaker.hobbies)
+                .checkResult("Picture " + usersFaker.imageName)
+                .checkResult("Address " + usersFaker.adress)
+                .checkResult("State and City " + usersFaker.state + " " + usersFaker.city);
 
     }
 
@@ -50,8 +50,8 @@ class FillFormWithPagesTests extends TestBase {
 
         registrationPage.openPage()
                 .removeBan()
-                .setFirstName(UsersFaker.firstName)
-                .setLastName(UsersFaker.lastName)
+                .setFirstName(usersFaker.firstName)
+                .setLastName(usersFaker.lastName)
 
 
                 .submit()
@@ -66,16 +66,16 @@ class FillFormWithPagesTests extends TestBase {
 
         registrationPage.openPage()
                 .removeBan()
-                .setFirstName(UsersFaker.firstName)
-                .setLastName(UsersFaker.lastName)
-                .setGender(UsersFaker.userGender)
-                .setUserNumber(UsersFaker.phoneNumber)
+                .setFirstName(usersFaker.firstName)
+                .setLastName(usersFaker.lastName)
+                .setGender(usersFaker.userGender)
+                .setUserNumber(usersFaker.phoneNumber)
 
                 .submit()
 
-                .checkResult("Student Name " + UsersFaker.firstName + " " + UsersFaker.lastName)
-                .checkResult("Gender " + UsersFaker.userGender)
-                .checkResult("Mobile " + UsersFaker.phoneNumber);
+                .checkResult("Student Name " + usersFaker.firstName + " " + usersFaker.lastName)
+                .checkResult("Gender " + usersFaker.userGender)
+                .checkResult("Mobile " + usersFaker.phoneNumber);
 
 
     }
@@ -85,10 +85,10 @@ class FillFormWithPagesTests extends TestBase {
 
         registrationPage.openPage()
                 .removeBan()
-                .setFirstName(UsersFaker.firstName)
-                .setLastName(UsersFaker.lastName)
-                .setGender(UsersFaker.userGender)
-                .setUserNumber(UsersFaker.wrongPhoneNumber)
+                .setFirstName(usersFaker.firstName)
+                .setLastName(usersFaker.lastName)
+                .setGender(usersFaker.userGender)
+                .setUserNumber(usersFaker.wrongPhoneNumber)
 
 
                 .submit()

@@ -6,33 +6,34 @@ import com.github.javafaker.Faker;
 import java.util.Locale;
 
 public class UsersFaker {
-    public static Faker faker = new Faker(new Locale("en-GB"));
+    public  Faker faker = new Faker(new Locale("en-GB"));
 
-    public static final String firstName = faker.name().firstName();
-    public static final String lastName = faker.name().lastName();
-    public static final String userEmail = faker.internet().emailAddress();
-    public static final String userGender = faker.options().option("Male", "Female", "Other");
-    public static final String phoneNumber = faker.number().digits(10);
-    public static final String wrongPhoneNumber = faker.number().digits(9);
+    public final String firstName = faker.name().firstName();
+    public final String lastName = faker.name().lastName();
+    public final String userEmail = faker.internet().emailAddress();
+    public final String userGender = faker.options().option("Male", "Female", "Other");
+    public final String phoneNumber = faker.number().digits(10);
+    public final String wrongPhoneNumber = faker.number().digits(9);
 
 
-    public static final String subjects = faker.options().option(
+    public final  String subjects = faker.options().option(
             "Maths", "Accounting", "Arts", "Social Studies",
             "Biology", "Physics", "Chemistry", "Computer Science", "Commerce",
             "Economics", "Civics", "Hindi", "English", "History");
-    public static final String hobbies = faker.options().option("Sports", "Reading", "Music");
-    public static final String imageName = faker.options().option("image1.jpg", "image2.jpg", "image3.jpg");
-    public static final String adress = String.valueOf(faker.address());
-    public static final String adressPermanent = String.valueOf(faker.address());
-    public static final String state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
-    public static final String city = chooseCity();
-    public static final String yearOfBDay = Integer.toString(faker.number().numberBetween(1900, 2024));
-    public static final String monthOfBDay = faker.options().option(
+    public final String hobbies = faker.options().option("Sports", "Reading", "Music");
+    public final String imageName = faker.options().option("image1.jpg", "image2.jpg", "image3.jpg");
+    public final String adress = String.valueOf(faker.address());
+    public final String adressPermanent = String.valueOf(faker.address());
+    public final String state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
+    public final String city = chooseCity();
+    public final String yearOfBDay = Integer.toString(faker.number().numberBetween(1900, 2024));
+    public final String monthOfBDay = faker.options().option(
             "January", "February", "March", "April", "May", "June", "July", "August",
             "September", "October", "November", "December");
-    public static final String dayOfBDay = Integer.toString(chooseDay());
-
-    public static int chooseDay() {
+    //public final String dayOfBDay = Integer.toString(chooseDay());
+    public final int dayOfBDay = chooseDay();
+    public final String dayOfBDayFormated = String.format("%02d", dayOfBDay);
+    public final int chooseDay() {
         if (monthOfBDay.equals("February")) {
             return faker.number().numberBetween(1, 28);
         } else if (monthOfBDay.equals("April") || monthOfBDay.equals("June")
@@ -43,7 +44,7 @@ public class UsersFaker {
         }
     }
 
-    public static String chooseCity() {
+    public final String chooseCity() {
         if (state.equals("NCR")) {
             return faker.options().option("Delhi", "Gurgaon", "Noida");
         } else if (state.equals("Uttar Pradesh")) {
